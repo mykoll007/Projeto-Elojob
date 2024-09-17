@@ -1,4 +1,5 @@
-@media screen and (max-width: 900px){
+@media screen and (max-width: 1000px){
+    /*Header*/
     header{
         display: block;
         padding-left: 102px;
@@ -26,10 +27,61 @@
         margin-top: 45px;
         font-size: 41px;
         display: block;
+        cursor: pointer;
     }
     #align-logoHambu{
         display: flex;
     justify-content: space-between;
-    margin-right: 258px;
+    margin-right: 171px;
+    }
+    /*Main*/
+
+
+
+    /*Footer*/
+
+    .container-footer{
+        display: block;
+        text-align: center;
+    }
+    #content-footer1{
+        display: block;
+    }
+    #content-footer1 p {
+        width: 100%;
+        margin: 2px;
+        font-size: 14px;
+    }
+    #align-icons {
+        width: 100%;
+        justify-content: center;
+    }
+    footer ul{
+        width: 100%;
+        margin-right: 0;
+        margin-top: 11px;
+    }
+    #formaspag{
+        width: 100%;
+        margin-top: 28px;
+    }
+    #formaspag p{
+        display: none;    
+    }
+    #icone-forma{
+        margin-right: 17px;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 767px){
+    header{
+        padding-left: 44px;
+    }
+    #align-logoHambu{
+        margin-right: 110px;
     }
 }

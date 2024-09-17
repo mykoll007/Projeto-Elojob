@@ -1,5 +1,6 @@
 body{
     background-color: brown;
+    margin: 0;
 }
 p, a{
     color: white;
@@ -12,14 +13,14 @@ p, a{
     margin-top: 14px;
     margin-bottom: 10px;
 }
-ul{
+header ul{
     display: flex;
     list-style-type: none;
     padding: 0;
     height:33px;
     margin: 0;
 }
-li{
+header li{
     margin: 0 20px;
 }
 header{
@@ -54,4 +55,69 @@ nav{
 }
 main{
     margin-top: 206px;
+}
+
+/*---------------Footer---------------------------*/
+footer{
+    margin-top: 40px;
+    padding-top: 31px;
+    background-color: #0F1015;
+    font-size: 14px;
+}
+.container-footer{
+    display: flex;
+    justify-content: space-between;
+}
+#logo-footer{
+    width: 101px;
+    height: 78px;
+    margin-top: 4px;
+    margin-right: 16px;
+}
+#content-footer1{
+    display: flex;
+}
+#content-footer1 p{
+    width: 287px;
+    margin: 0;
+    font-size: 11px;
+}
+#align-icons{
+    display: flex;
+    width: 107px;
+    align-items: center;
+}
+.whatsapp-icon{
+    height: 42px;
+}
+.instagram-icon{
+    height: 63px;
+}
+footer ul{
+    list-style-type: none;
+    font-family: poppins;
+    color: white;
+    width: 227px;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    margin-right: 164px;
+}
+footer ul li{
+    margin-bottom: 3px;
+}
+#formaspag{
+    width: 242px;
+    text-align: center;
+    margin-right: 10px;
+}
+#formaspag p{
+    margin-top: 0;
+}
+#icone-forma{
+    margin-bottom: 8px;
+}
+#direitos{
+    text-align: center;
+    margin-bottom: 0;
 }
