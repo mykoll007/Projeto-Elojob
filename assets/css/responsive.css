@@ -1,0 +1,35 @@
+@media screen and (max-width: 900px){
+    header{
+        display: block;
+        padding-left: 102px;
+    }
+    header ul{
+        display: block;
+    }
+    nav{
+        padding-top: 0;
+    }
+     header li{
+        width: 100px;
+    }
+    #itens{
+        display: none;
+    }
+    #btnIniciar{
+        display: none;
+        margin-top: 108px;
+        margin-bottom: 10px;
+    }
+    #IconMenu{
+        color: white;
+        height: 35px;
+        margin-top: 45px;
+        font-size: 41px;
+        display: block;
+    }
+    #align-logoHambu{
+        display: flex;
+    justify-content: space-between;
+    margin-right: 258px;
+    }
+}

@@ -1,0 +1,57 @@
+body{
+    background-color: brown;
+}
+p, a{
+    color: white;
+    text-decoration: none;
+    font-family: poppins;
+}
+.logo{
+    width: 134px;
+    height: 101px;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    height:33px;
+    margin: 0;
+}
+li{
+    margin: 0 20px;
+}
+header{
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed; /* Fixa o header no topo */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Adiciona sombra abaixo do header */
+}
+#IconMenu{
+    display: none;
+}
+nav{
+    padding-top: 49px;
+}
+.login-btn{
+    height: 40px;
+    width: 151px;
+    font-family: 'Poppins';
+    background-color: #282D30;
+    color: white;
+    border: 1px solid #282d30;
+    border-radius: 13px;
+    margin-top: 41px;
+    font-size: 13px;
+    cursor: pointer;
+}
+main{
+    margin-top: 206px;
+}
