@@ -289,6 +289,9 @@ margin-left: 12px;
     font-size: 16px;
     text-transform: uppercase;
 }
+.perguntas h1{
+  padding-top: 83px;
+}
 .accordeon-item{
   display: flex;
   justify-content: center;
@@ -322,10 +325,30 @@ margin-left: 12px;
 #converse-conosco{
   text-align: center;
   font-size: 14px;
+  margin-bottom: 67px;
 }
-
-
-
+/* #chamada-serv{
+  margin: 0 206px;
+} */
+#chamada-serv h2{
+  color: white;
+  font-size: 25px;
+  font-family: poppins;
+  font-weight: 400;
+  margin-top: 0;
+}
+#align-chamada{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#align-chamada img{
+  height: 35px;
+}
+#align-chamada p{
+  margin-bottom: 0;
+  margin-top: 30px;
+}
 
 
 
