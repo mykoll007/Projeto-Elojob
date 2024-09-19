@@ -7,8 +7,7 @@
     <title>EloJob XCrONOS</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/slick/slick.css">
-    <link rel="stylesheet" href="assets/slick/slick-theme.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -77,7 +76,8 @@
         <h1>Vantagens de Escolher a ELOJOB XCrONOS</h1>
 
         <!--Vantagens-->
-        <section>
+        <section class="vantagens">
+        <div id="vantagens1-2">
             <div id="vantagem1">
                 <img src="assets/images/guerreiro.png" alt="logo guerreiro">
                 <h2>Guerreiros de Elite</h2>
@@ -89,7 +89,9 @@
                 <p>Protegemos suas informações e mantemos o chat em silêncio para uma jornada discreta e livre de
                     riscos.</p>
             </div>
-            <div id="vantagem3">
+        </div>
+        <div id="vantagens3-4">         
+              <div id="vantagem3">
                 <img src="assets/images/vigilancia.png" alt="logo olho viligante">
                 <h2>Vigilância 24/7</h2>
                 <p>Estamos sempre prontos, dia e noite, para atender às suas necessidades. Nossa dedicação é constante,
@@ -101,17 +103,20 @@
                 <p>Oferecemos serviços personalizados para atender suas necessidades únicas, seja elojob solo, duo boost
                     ou treinamento intensivo.</p>
             </div>
+        </div>
         </section>
 
         <!--Separação Entre  Vantagens e Avaliações-->
-        <div id="separacao-hr">
-            <hr>
-            <img src="assets/images/logoCronos.png" alt="Logo XCrONOS">
-            <hr>
-        </div>
+        <div class="linha-container">
+            <div class="linha"></div>
+            <div class="logo">
+              <img src="assets/images/logoCronos.png" alt="Logo">
+            </div>
+            <div class="linha"></div>
+          </div>
 
         <!--Avaliações-->
-        <section>
+        <section class="avaliacoes">
             <div class="estrelas">
                 <img src="assets/images/Star rate.png" alt=" imagem estrela">
                 <img src="assets/images/Star rate.png" alt=" imagem estrela">
@@ -120,7 +125,7 @@
                 <img src="assets/images/Star rate.png" alt=" imagem estrela">
             </div>
             <h1>Algumas de Nossas Avaliações</h1>
-            <p>Avaliado com distinção: 5 estrelas de 5, fundamentado em 1041 testemunhos.</p>
+            <p id="avaliado">Avaliado com distinção: 5 estrelas de 5, fundamentado em 1041 testemunhos.</p>
 
             <div class="container-feedback">
                 <!--Card do Feedback 1-->
@@ -135,7 +140,7 @@
                                 <p>21/03/23 - Elojob</p>
                             </div>
                         </div>
-                        <div class="estrelas">
+                        <div class="estrelas-peq">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
@@ -157,7 +162,7 @@
                                 <p>21/03/23 - Elojob</p>
                             </div>
                         </div>
-                        <div class="estrelas">
+                        <div class="estrelas-peq">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
@@ -178,7 +183,7 @@
                                 <p>21/03/23 - Elojob</p>
                             </div>
                         </div>
-                        <div class="estrelas">
+                        <div class="estrelas-peq">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
@@ -199,7 +204,7 @@
                                 <p>21/03/23 - Elojob</p>
                             </div>
                         </div>
-                        <div class="estrelas">
+                        <div class="estrelas-peq">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
                             <img src="assets/images/Star rate.png" alt=" imagem estrela">
@@ -313,6 +318,7 @@
     </footer>
 
     <script src="assets/js/interacoes.js"></script>
+
 
 </body>
 

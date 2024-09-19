@@ -1,146 +1,231 @@
-body{
-    background-color: darkgreen;
-    margin: 0;
-}
-p, a{
-    color: white;
-    text-decoration: none;
-    font-family: poppins;
-    font-weight: 400;
-}
-.logo{
-    width: 134px;
-    height: 101px;
-    margin-top: 14px;
-    margin-bottom: 10px;
-}
-header ul{
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    height:33px;
-    margin: 0;
-}
-header li{
-    margin: 0 20px;
-}
-header{
-    display: flex;
-    justify-content: space-evenly;
-    position: fixed; /* Fixa o header no topo */
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-    transition: border 0.3s ease; 
-    border-bottom: 2px solid transparent; 
+body {
+  background-color: green;
+  margin: 0;
 }
 
-#IconMenu{
-    display: none;
+p,
+a {
+  color: white;
+  text-decoration: none;
+  font-family: poppins;
+  font-weight: 400;
 }
-nav{
-    padding-top: 49px;
+.logo {
+  width: 134px;
+  height: 101px;
+  margin-top: 14px;
+  margin-bottom: 10px;
 }
-.login-btn{
-    height: 40px;
-    width: 151px;
-    font-family: 'Poppins';
-    background-color: #282D30;
-    color: white;
-    border: 1px solid #282d30;
-    border-radius: 13px;
-    margin-top: 41px;
-    font-size: 13px;
-    cursor: pointer;
+header ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  height: 33px;
+  margin: 0;
 }
-main{
-    margin-top: 206px;
+header li {
+  margin: 0 20px;
+}
+header {
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed; /* Fixa o header no topo */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: border 0.3s ease;
+  border-bottom: 2px solid transparent;
 }
 
-.hero{
-    background-image: url(../images/fundo-img.png);
-    height: 469px;
-    background-position-x: center;
-    background-position-y: bottom;
-    background-repeat: no-repeat;
-        margin-bottom: 64px;
-
+#IconMenu {
+  display: none;
+}
+nav {
+  padding-top: 49px;
+}
+.login-btn {
+  height: 40px;
+  width: 151px;
+  font-family: "Poppins";
+  background-color: #282d30;
+  color: white;
+  border: 1px solid #282d30;
+  border-radius: 13px;
+  margin-top: 41px;
+  font-size: 13px;
+  cursor: pointer;
+}
+main {
+  margin-top: 206px;
 }
 
-.hero h1{
-    color: white;
-    font-family: poppins;
-    font-weight: 600;
-    font-size: 25px;
+.hero {
+  background-image: url(../images/fundo-img.png);
+  height: 469px;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  margin-bottom: 64px;
+}
+
+h1 {
+  color: white;
+  font-family: poppins;
+  font-weight: 600;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 104px;
+}
+.hero p {
+  width: 661px;
+  font-size: 18px;
+  margin-top: 56px;
+  text-align: center;
+}
+#align-heroP {
+  display: flex;
+  justify-content: center;
+}
+#container-cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  width: 278px;
+  height: 381px;
+  background-color: #1d1c29;
+  text-align: center;
+  /* margin-left: 141px; */
+  border-radius: 19px;
+}
+.card img {
+  width: 111px;
+}
+.card h2 {
+  margin-bottom: 30px;
+  margin-top: 0;
+  color: white;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.card p {
+  font-size: 16px;
+  margin-left: 21px;
+  text-align: start;
+}
+#card-elo p {
+  margin-bottom: 53px;
+}
+#card-duo p {
+  margin-bottom: 26px;
+}
+#card-md5 p {
+  margin-bottom: 25px;
+}
+#card-coach p {
+  margin-bottom: 25px;
+  margin-right: 2px;
+}
+.card button {
+  height: 46px;
+  width: 173px;
+  font-family: "Poppins";
+  font-size: 15px;
+  color: white;
+  border: 1px solid #000000;
+  background-color: #000000;
+  border-radius: 13px;
+  cursor: pointer;
+}
+.vantagens {
+  margin: 88px;
+}
+.vantagens div div {
+  width: 318px;
+  text-align: center;
+}
+.vantagens h2 {
+  font-family: "Poppins";
+  color: white;
+}
+#vantagens1-2 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#vantagens3-4 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.linha-container {
+  display: flex;
+  align-items: center;
+}
+
+.linha {
+  flex: 1;
+  height: 1px;
+  background-color: #999;
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+  margin: 0 10px;
+}
+.avaliacoes h1 {
+  padding-top: 0;
+}
+.estrelas {
+  text-align: center;
+  margin-top: 24px;
+}
+
+#avaliado{
     text-align: center;
-    padding-top: 104px;
 }
-.hero p{
-    width: 661px;
-    font-size: 18px;
-    margin-top: 56px;
-    text-align: center;
-}
-#align-heroP{
-    display: flex;
-    justify-content: center;
-}
-#container-cards{
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.card{
-    width: 278px;
-    height: 381px;
+
+#align-nomeStars{
     background-color: #1D1C29;
+    width: 600px;
+    display: flex;
+}
+#align-nome{
+  display: flex;
+}
+#icon-feed{
+    width: 52px;
+    height: 52px;
+    border-radius: 27px;
+    background-color: black;
     text-align: center;
-    /* margin-left: 141px; */
-    border-radius: 19px;
+    margin-top: 9px;
+    margin-left: 7px;
 }
-.card img{
-     width: 111px;
+#icon-feed p{
+    margin: 0;
+    padding-top: 11px;
+    font-size: 21px;
 }
-.card h2{
-    margin-bottom: 30px;
-    margin-top: 0;
-    color: white;
-    font-family: 'Poppins';
-    font-weight: 600;
+#dois-text p:first-of-type{
+  margin-top: 13px;
+    font-size: 19px;
+    margin-left: 13px;
+    margin-bottom: 0;
 }
-.card p{
-    font-size: 16px;
-    margin-left: 21px;
-    text-align: start;
-}
-#card-elo p{
-    margin-bottom: 53px;
-}
-#card-duo p{
-    margin-bottom: 26px;
-}
-#card-md5 p{
-    margin-bottom: 25px;
-}
-#card-coach p{
-    margin-bottom: 25px;
-    margin-right: 2px;
-}
-.card button{
-    height: 46px;
-    width: 173px;
-    font-family: 'Poppins';
-    font-size: 15px;
-    color: white;
-    border: 1px solid #000000;
-    background-color: #000000;
-    border-radius: 13px;
-}
+
+
+
+
+
+
 
 
 
@@ -154,66 +239,66 @@ main{
 
 
 /*---------------Footer---------------------------*/
-footer{
-    margin-top: 40px;
-    padding-top: 31px;
-    background-color: #0F1015;
-    font-size: 14px;
+footer {
+  margin-top: 40px;
+  padding-top: 31px;
+  background-color: #0f1015;
+  font-size: 14px;
 }
-.container-footer{
-    display: flex;
-    justify-content: space-between;
+.container-footer {
+  display: flex;
+  justify-content: space-between;
 }
-#logo-footer{
-    width: 101px;
-    height: 78px;
-    margin-top: 4px;
-    margin-right: 16px;
+#logo-footer {
+  width: 101px;
+  height: 78px;
+  margin-top: 4px;
+  margin-right: 16px;
 }
-#content-footer1{
-    display: flex;
+#content-footer1 {
+  display: flex;
 }
-#content-footer1 p{
-    width: 287px;
-    margin: 0;
-    font-size: 11px;
+#content-footer1 p {
+  width: 287px;
+  margin: 0;
+  font-size: 11px;
 }
-#align-icons{
-    display: flex;
-    width: 107px;
-    align-items: center;
+#align-icons {
+  display: flex;
+  width: 107px;
+  align-items: center;
 }
-.whatsapp-icon{
-    height: 42px;
+.whatsapp-icon {
+  height: 42px;
 }
-.instagram-icon{
-    height: 63px;
+.instagram-icon {
+  height: 63px;
 }
-footer ul{
-    list-style-type: none;
-    font-family: poppins;
-    color: white;
-    width: 227px;
-    padding: 0;
-    text-align: center;
-    margin: 0;
-    margin-right: 164px;
+footer ul {
+  list-style-type: none;
+  font-family: poppins;
+  color: white;
+  width: 227px;
+  padding: 0;
+  text-align: center;
+  margin: 0;
+  margin-right: 164px;
 }
-footer ul li{
-    margin-bottom: 3px;
+footer ul li {
+  margin-bottom: 3px;
 }
-#formaspag{
-    width: 242px;
-    text-align: center;
-    margin-right: 10px;
+#formaspag {
+  width: 242px;
+  text-align: center;
+  margin-right: 10px;
 }
-#formaspag p{
-    margin-top: 0;
+#formaspag p {
+  margin-top: 0;
 }
-#icone-forma{
-    margin-bottom: 8px;
+#icone-forma {
+  margin-bottom: 8px;
 }
-#direitos{
-    text-align: center;
-    margin-bottom: 0;
+#direitos {
+  text-align: center;
+  margin-bottom: 0;
 }
