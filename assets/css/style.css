@@ -1,5 +1,5 @@
 body {
-  background-color: green;
+  background-color: black;
   margin: 0;
 }
 
@@ -257,7 +257,7 @@ h1 {
     align-items: center;
     text-align: center;
     background-color: #1D1C29;
-    margin-top: 66px;
+    margin-top: 132px;
 }
 h4{
   color: white;
@@ -289,10 +289,40 @@ margin-left: 12px;
     font-size: 16px;
     text-transform: uppercase;
 }
-
-
-
-
+.accordeon-item{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.accordeon-item button{
+  background-color: #1D1C29;
+  color: white;
+  font-family: 'Poppins';
+  width: 452px;
+  border: 1px solid #1D1C29;
+  border-radius: 7px;
+  height: 77px;
+  font-size: 17px;
+  padding-left: 24px;
+  padding-right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  cursor: pointer;
+}
+.resposta-acordeon{
+  display: none;
+  justify-content: center;
+}
+.resposta-acordeon p{
+  text-align: center;
+  width: 448px;
+  margin-top: 8px;
+}
+#converse-conosco{
+  text-align: center;
+  font-size: 14px;
+}
 
 
 
