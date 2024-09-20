@@ -1,0 +1,137 @@
+#particles-js{
+    background: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+  }
+  
+  body {
+    background-color: black;
+    margin: 0;
+  }
+  
+  p,
+  a {
+    color: white;
+    text-decoration: none;
+    font-family: poppins;
+    font-weight: 400;
+  }
+  /*-------------------Header----------------*/
+  .logo {
+    width: 115px;
+    height: 87px;
+    margin-top: 14px;
+    margin-bottom: 10px;
+  }
+  header ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    height: 33px;
+    margin: 0;
+  }
+  header li {
+    margin: 0 20px;
+  }
+  header {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed; /* Fixa o header no topo */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: border 0.3s ease;
+    border-bottom: 2px solid transparent;
+  }
+  
+  #IconMenu {
+    display: none;
+  }
+  nav {
+    padding-top: 49px;
+  }
+  .login-btn {
+    height: 40px;
+    width: 151px;
+    font-family: "Poppins";
+    background-color: #282d30;
+    color: white;
+    border: 1px solid #282d30;
+    border-radius: 13px;
+    margin-top: 41px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  /*---------------Footer---------------------------*/
+footer {
+    margin-top: 40px;
+    padding-top: 31px;
+    background-color: #0f1015;
+    font-size: 14px;
+  }
+  .container-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  #logo-footer {
+    width: 101px;
+    height: 78px;
+    margin-top: 4px;
+    margin-right: 16px;
+  }
+  #content-footer1 {
+    display: flex;
+  }
+  #content-footer1 p {
+    width: 287px;
+    margin: 0;
+    font-size: 11px;
+  }
+  #align-icons {
+    display: flex;
+    width: 107px;
+    align-items: center;
+  }
+  .whatsapp-icon {
+    height: 42px;
+  }
+  .instagram-icon {
+    height: 63px;
+  }
+  footer ul {
+    list-style-type: none;
+    font-family: poppins;
+    color: white;
+    width: 227px;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    margin-right: 164px;
+  }
+  footer ul li {
+    margin-bottom: 3px;
+  }
+  #formaspag {
+    width: 242px;
+    text-align: center;
+    margin-right: 10px;
+  }
+  #formaspag p {
+    margin-top: 0;
+  }
+  #icone-forma {
+    margin-bottom: 8px;
+  }
+  #direitos {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  

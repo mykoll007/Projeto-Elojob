@@ -34,9 +34,34 @@
     justify-content: space-between;
     margin-right: 171px;
     }
+
+    
     /*Main*/
-
-
+    @media screen and (max-width: 767px){
+        header{
+            padding-left: 44px;
+        }
+        #align-logoHambu{
+            margin-right: 110px;
+        }
+    }
+    @media screen and (max-width: 547px){
+        #align-chamada{
+            display: block;
+            text-align: center;
+        }
+        #container-infos{
+            display: block;
+        }
+        #container-infos button{
+            margin: 22px 0;
+        }
+    }
+    @media screen and (max-width: 385px){
+    .hero p{
+        margin-top: 0;
+    }
+    }
 
     /*Footer*/
 
@@ -70,18 +95,5 @@
     }
     #icone-forma{
         margin-right: 17px;
-    }
-}
-
-
-
-
-
-@media screen and (max-width: 767px){
-    header{
-        padding-left: 44px;
-    }
-    #align-logoHambu{
-        margin-right: 110px;
     }
 }
