@@ -33,17 +33,19 @@
     </header>
 
     <main>
+        <div id="elojob">
         <img src="../assets/images/elojob.png" alt="logo elojob">
         <h1>ELOJOB</h1>
         <h4>League of Legends</h4>
-        <div>
+        </div>
+        <div id="align-paragrafo1">
             <p>Nosso serviço de Elojob é como uma jornada épica: lutamos em sua conta até conquistar a divisão desejada. Você, o comandante, escolhe as lanes e campeões que levarão sua bandeira à vitória, e poderá testemunhar cada batalha ao vivo em nosso Discord. Se preferir lutar ao lado de seus aliados, sem entregar sua conta, o Duoboost é a escolha digna de um verdadeiro guerreiro.</p>
         </div>
         <div id="align-cards">
             <!--Card 1-->
             <div id="card1">
                 <h4>ELO ATUAL</h4>
-                <div>
+                <div id="content-card1">
                     <img src="../assets/images/ferro.png">
                     <p>Liga Atual</p>
                     <select id="liga" name="liga">
@@ -58,8 +60,8 @@
             
             <!--Card 2-->
             <div id="card2">
-                <h4>ELO ATUAL</h4>
-                <div>
+                <h4>ELO DESEJADO</h4>
+                <div id="content-card2">
                     <img src="../assets/images/prata.png">
                     <p>Liga Atual</p>
                     <select id="liga-desejada" name="liga-desejada">
@@ -75,6 +77,7 @@
             <!--Card 3 - Pedido -->
             <div id="pedido">
                 <h4>PEDIDO</h4>
+                <div id="content-card3">
                 <div id="align-elo">
                     <p>FERRO IV</p>
                     <p>-></p>
@@ -85,26 +88,33 @@
                     <img src="../assets/images/prata.png" alt="imagem elo prata">
                 </div>
                 <hr>
+                <div id="precos">
                 <p>DE: R$ 106,50</p>
                 <p>POR:</p>
                 <p>R$ 80,99</p>
+                </div>
                 <select id="planos" name="planos">
                     <option value="gladiador">Plano Gladiador</option>
                     <option value="cronos">Plano Cronos</option>
                 </select>
                 <button>COMPRAR</button>
+                </div>
             </div>
         </div>
         
         <div id="align-planos">
-            <div id="plano gladiador">
+            <div id="plano-gladiador">
+            <div class="align-imgplano">
             <img src="../assets/images/plano gladiador.png" alt="plano gladiador">
+            </div>
             <h2>PLANO GLADIADOR</h2>
             <p>Assuma o campo de batalha com a força de um verdadeiro guerreiro! Neste plano, nós tomamos as rédeas da sua conta e marchamos à vitória com velocidade e precisão. Nosso foco é garantir que você retorne ao confronto o quanto antes, preparado para enfrentar qualquer desafio.</p>
             </div>   
-            <div id="plano cronos">
-            <h2>PLANO CRONOS</h2>
+            <div id="plano-cronos">
+              <div class="align-imgplano">  
              <img src="../assets/images/plano cronos.png" alt="plano cronos">
+            </div>
+             <h2>PLANO CRONOS</h2>
              <p>Domine o tempo e o espaço com a sabedoria dos deuses! Neste plano supremo, você pode observar cada passo da jornada ao vivo no nosso Discord, enquanto conversa com o campeão que está impulsionando sua ascensão. Muitos invocadores descobrem que, após vivenciar essa experiência épica, continuam escalando as fileiras por conta própria, com o conhecimento adquirido.</p>   
             </div>
         </div>
@@ -127,6 +137,7 @@
             </div>
         </div>
 
+        <div id="especificacoes">
         <h2>ATENÇÃO GUERREIRO!</h2>
         <p>A Elojob XCrONOS oferece um serviço de elojob seguro e focado no seu aprendizado. Nossos Boosters são verdadeiros combatentes, prontos para mostrar como dominar a SoloQ, mesmo em meio a desafios como trolls e afks. Sabemos que muitos guerreiros não alcançam seu verdadeiro elo por obstáculos no campo de batalha. Estamos aqui para elevar sua experiência de jogo, garantindo que você conquiste suas recompensas com tranquilidade. Oferecemos elojob para divisões, MD5, e planos personalizados que se adaptam às suas necessidades. Prepare-se para lutar como um verdadeiro campeão!</p>
 
@@ -135,7 +146,7 @@
         <p>Se, por acaso, o booster falhar em uma MD5 ou cair de divisão, garantimos o retorno do elo e das classificatórias sem custo adicional.</p>
         <p>Para contas com baixo MMR (menos de 18 pontos por partida), haverá uma taxa adicional de 25% para neutralizar a conta.</p>
         <p>Se houver fila, o prazo do serviço pode ser indefinido. Consulte-nos antes de solicitar o serviço.</p>
-
+        </div>   
 
 
 
@@ -167,11 +178,11 @@
         </div>
         <div>
         <p id="direitos">© 2024 Elojob XCrONOS. Todos os direitos reservados.</p>
-        <!-- <div id="particles-js"></div> -->
+        <div id="particles-js"></div>
         </footer>
     
         <script src="../assets/js/interacoes.js"></script>
-        <!-- <script src="../assets/js/particles.min.js"></script> -->
+        <script src="../assets/js/particles.min.js"></script>
 
 </body>
 </html>

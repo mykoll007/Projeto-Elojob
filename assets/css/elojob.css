@@ -1,3 +1,239 @@
 main{
-    margin-top: 206px;
+    margin-top: 152px;
+}
+#elojob{
+    text-align: center;
+}
+#elojob h1{
+    margin: 0;
+    font-size: 45px;
+    font-family: poppins;
+    color: white;
+    font-weight: 600;
+}
+#elojob h4{
+    color: white;
+    font-family: poppins;
+    margin: 0;
+    font-weight: 500;
+}
+#align-paragrafo1{
+    display: flex;
+    justify-content: center;
+    margin:0 32px;
+}
+#align-paragrafo1 p{
+    width: 700px;
+    margin-top: 43px;
+    font-size: 17px;
+}
+#align-cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 34px;
+}
+
+#card1 h4{
+    color: white;
+    font-family: poppins;
+    font-weight: 600;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+#content-card1{
+    border: 3px solid white;
+    border-radius: 19px;
+    width: 270px;
+    height: 347px;
+    text-align: center;
+    background-color: #1D1C29;
+}
+#content-card1 img{
+    width: 224px;
+    margin-top: 25px;
+}
+#content-card1 p:first-of-type{
+    margin-top: 0;
+}
+#content-card1 select{
+    width: 217px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    padding-left: 8px;
+    font-weight: 500;
+    font-size: 15px;
+}
+#content-card1 p:nth-of-type(2){
+    margin-bottom: 6px;
+
+}
+#card2 h4{
+    color: white;
+    font-family: poppins;
+    font-weight: 600;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+#content-card2{
+    border: 3px solid white;
+    border-radius: 19px;
+    width: 270px;
+    height: 347px;
+    text-align: center;
+    background-color: #1D1C29;
+}
+#content-card2 img{
+    width: 224px;
+    margin-top: 25px;
+}
+#content-card2 p:first-of-type{
+    margin-top: 0;
+}
+#content-card2 select{
+    width: 217px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-family: 'Poppins';
+    padding-left: 8px;
+    font-weight: 500;
+    font-size: 15px;
+}
+#content-card2 p:nth-of-type(2){
+    margin-bottom: 6px;
+}
+
+#pedido h4{
+    color: white;
+    font-family: poppins;
+    font-weight: 600;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+#content-card3{
+    border: 3px solid white;
+    border-radius: 19px;
+    width: 270px;
+    height: 347px;
+    text-align: center;
+    background-color: #1D1C29;
+}
+#align-elo{
+    display: flex;
+}
+#align-elo p{
+    margin-bottom: 0;
+}
+#align-elo p:first-of-type{
+    margin-left: 47px;
+}
+#align-elo p:nth-last-of-type(2){
+    margin-left: 22px;
+}
+#align-elo p:nth-of-type(3){
+    margin-left: 17px;
+}
+#align-eloimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#align-eloimg img:first-of-type{
+    width: 122px;
+}
+#align-eloimg img:nth-of-type(2){
+    width: 106px;
+    height: 60px;
+}
+#precos p:first-of-type{
+    opacity: 50%;
+    text-decoration: line-through;
+    margin: 0;
+}
+#precos p:nth-last-of-type(2){
+    margin-top: 9px;
+    font-size: 23px;
+    margin-bottom: 0;
+}
+#precos p:nth-of-type(3){
+    font-size: 33px;
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+#planos{
+    width: 180px;
+    height: 33px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding-left: 8px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    font-size: 15px;
+}
+#pedido button{
+    cursor: pointer;
+    width: 180px;
+    height: 43px;
+    font-family: poppins;
+    margin-top: 10px;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 13px;
+    font-size: 17px;
+}
+#align-planos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+.align-imgplano{
+    display: flex;
+    justify-content: center;
+}
+#plano-gladiador{
+width: 398px;
+margin-top: 7px;
+
+}
+#plano-gladiador h2{
+    color: white;
+    font-weight: 500;
+    font-family: 'Poppins';
+    text-align: center;
+}
+#plano-cronos h2{
+    color: white;
+    font-weight: 500;
+    font-family: 'Poppins';
+    text-align: center;
+}
+
+#plano-cronos{
+    width: 398px;
+
+}
+
+#infos-estat{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 66px;
+}
+#especificacoes{
+    margin:59px 84px ;
+}
+#especificacoes h2{
+    color: white;
+    font-weight: 500;
+    font-family: 'Poppins';
 }
