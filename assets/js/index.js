@@ -1,14 +1,3 @@
-//Hamburguer
-function clickMenu() {
-  if (itens.style.display == "block" && btnIniciar.style.display == "block") {
-    itens.style.display = "none";
-    btnIniciar.style.display = "none";
-  } else {
-    itens.style.display = "block";
-    btnIniciar.style.display = "block";
-  }
-}
-
 //Perguntas Frequentes - Accordeon
 
 let accordeon1 = document.getElementById("accordeon1");
@@ -62,4 +51,3 @@ document.getElementById("btn-acordeon2").addEventListener("click", function () {
           seta.src = "assets/images/seta baixo.png";
         }
       });
-
