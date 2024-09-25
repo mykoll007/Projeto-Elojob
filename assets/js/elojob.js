@@ -67,20 +67,81 @@ const precosElo = {
     const divisaoAtual = document.getElementById('divisao').value;
     const eloDesejado = document.getElementById('liga-desejada').value;
     const divisaoDesejada = document.getElementById('divisao-desejada').value;
-  
+
+    // Reseta os preços temporários
+    precosEloTemporarios = { ...precosElo };
+
+    // Verifica se a liga e a divisão atuais estão selecionadas
+    if (eloAtual && divisaoAtual) {
+        // Define o preço do elo atual como 0
+        precosEloTemporarios[eloAtual][divisaoAtual] = 0;
+    }
+
     const precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
-  
-    // Atualizar o valor exibido
+    
+    // Atualiza o valor exibido
     document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2)}`;
-  
+
     const precoOriginal = precoBase + precoTotal;
     document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2)}`;
-  
-    // Atualizar o pedido na interface
+
+    // Atualiza o pedido na interface
     document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
     document.querySelector('#pedido #align-elo p:nth-child(3)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
-  }
+}
+
+// Modifique a função calcularPrecoTotal para usar os preços temporários
+function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada) {
+    const nivelAtual = hierarquia[eloAtual][divisaoAtual];
+    const nivelDesejado = hierarquia[eloDesejado][divisaoDesejada];
+    
+    let precoTotal = 0;
+
+    // Se o elo desejado é maior que o atual, somamos os preços das divisões entre os níveis
+    if (nivelDesejado > nivelAtual) {
+        let elo = eloAtual;
+        let divisao = divisaoAtual;
+
+        // Começamos do elo e divisão atuais até o elo desejado
+        while (elo !== eloDesejado || divisao !== divisaoDesejada) {
+            // Soma o preço da divisão atual
+            if (elo !== eloDesejado || divisao !== divisaoDesejada) {
+                precoTotal += precosEloTemporarios[elo][divisao];
+            }
+
+            // Subir na hierarquia das divisões
+            if (divisao === '1') { // Se estamos na primeira divisão, vamos para o próximo elo
+                if (elo === 'ferro') elo = 'bronze';
+                else if (elo === 'bronze') elo = 'prata';
+                else if (elo === 'prata') elo = 'ouro';
+                else if (elo === 'ouro') elo = 'platina';
+                else if (elo === 'platina') elo = 'esmeralda';
+                else if (elo === 'esmeralda') elo = 'diamante';
+                divisao = '4'; // Resetamos para a última divisão do novo elo
+            } else {
+                divisao = (parseInt(divisao) - 1).toString(); // Vai para a próxima divisão dentro do mesmo elo
+            }
+        }
+
+        // Soma o preço da última divisão desejada
+        precoTotal += precosEloTemporarios[eloDesejado][divisaoDesejada];
+
+        console.log(`Elo Atual: ${eloAtual}, Divisão Atual: ${divisaoAtual}`);
+        console.log(`Elo Desejado: ${eloDesejado}, Divisão Desejada: ${divisaoDesejada}`);
+        console.log(`Preço Total antes de somar: R$ ${precoTotal.toFixed(2)}`);
+    }
+
+    return precoTotal;
+    
+}
+
+// Event listeners para atualizar o preço ao mudar as seleções
+document.getElementById('liga').addEventListener('change', atualizarPreco);
+document.getElementById('divisao').addEventListener('change', atualizarPreco);
+document.getElementById('liga-desejada').addEventListener('change', atualizarPreco);
+document.getElementById('divisao-desejada').addEventListener('change', atualizarPreco);
   
+
   // Função para enviar mensagem no WhatsApp ao clicar no botão "COMPRAR"
   function enviarParaWhatsApp() {
     const eloAtual = document.getElementById('liga').options[document.getElementById('liga').selectedIndex].text;
@@ -108,3 +169,4 @@ const precosElo = {
   document.getElementById('liga-desejada').addEventListener('change', atualizarPreco);
   document.getElementById('divisao-desejada').addEventListener('change', atualizarPreco);
   
+
