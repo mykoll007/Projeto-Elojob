@@ -176,6 +176,10 @@ main{
     font-family: 'Poppins';
     font-size: 15px;
 }
+#align-buttonPedido{
+    display: flex;
+    justify-content: center;
+}
 #pedido button{
     cursor: pointer;
     width: 180px;
@@ -187,6 +191,13 @@ main{
     border: 1px solid black;
     border-radius: 13px;
     font-size: 17px;
+    display: flex;
+    align-items: center;
+}
+#pedido button img{
+    width: 27px;
+    padding-right: 5px;
+    padding-left: 20px;
 }
 #card-alternativo{
     margin-top: 135px;

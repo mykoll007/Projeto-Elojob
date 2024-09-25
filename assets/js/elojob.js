@@ -32,8 +32,6 @@ const planoCronos = {
     'diamante': 20.00 
 };
 
-// Preços temporários para ajuste
-let precosEloTemporarios = JSON.parse(JSON.stringify(precosElo)); // Cria uma cópia dos preços
 
 // Hierarquia dos elos em valores numéricos para comparação
 const hierarquia = {
@@ -45,6 +43,9 @@ const hierarquia = {
     'esmeralda': { '4': 21, '3': 22, '2': 23, '1': 24 },
     'diamante': { '4': 25, '3': 26, '2': 27, '1': 28 }
 };
+
+// Preços temporários para ajuste
+let precosEloTemporarios = JSON.parse(JSON.stringify(precosElo)); // Cria uma cópia dos preços
 
 // Função para calcular o preço total de acordo com a hierarquia de elos
 function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada) {
