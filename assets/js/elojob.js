@@ -71,6 +71,8 @@ function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada
     return Math.max(precoTotal, 0); // Garante que o preço não fique negativo
 }
 
+
+
 // Função para atualizar os preços com base nos elos e divisões atuais e desejadas
 function atualizarPreco() {
     const eloAtual = document.getElementById('liga').value;
@@ -96,8 +98,11 @@ function atualizarPreco() {
 
     // Atualiza o pedido na interface
     document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
-    document.querySelector('#pedido #align-elo p:nth-child(3)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
+    document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
 }
+
+
+
 
 // Funções auxiliares para obter o próximo e anterior elo
 function proximoElo(elo) {
@@ -106,17 +111,55 @@ function proximoElo(elo) {
     return index < elos.length - 1 ? elos[index + 1] : elo; // Retorna o próximo elo
 }
 
+
+
 function anteriorElo(elo) {
     const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante'];
     const index = elos.indexOf(elo);
     return index > 0 ? elos[index - 1] : elo; // Retorna o elo anterior
 }
 
+
 // Event listeners para atualizar o preço ao mudar as seleções
 document.getElementById('liga').addEventListener('change', atualizarPreco);
 document.getElementById('divisao').addEventListener('change', atualizarPreco);
 document.getElementById('liga-desejada').addEventListener('change', atualizarPreco);
 document.getElementById('divisao-desejada').addEventListener('change', atualizarPreco);
+
+
+
+
+// Função para atualizar a imagem do elo
+function atualizarImagem(cardId, selectId) {
+  const elo = document.getElementById(selectId).value;
+  const imgSrc = `../assets/images/${elo}.png`;
+  
+  // Atualiza a imagem do card
+  document.querySelector(`#${cardId} img`).src = imgSrc;
+
+  // Atualiza as imagens em align-eloimg
+  if (cardId === 'card1') {
+      document.querySelector('#align-eloimg img:first-child').src = imgSrc; // Elo Atual
+  } else {
+      document.querySelector('#align-eloimg img:last-child').src = imgSrc; // Elo Desejado
+  }
+}
+
+// Event listeners para atualizar as imagens ao mudar as seleções
+document.getElementById('liga').addEventListener('change', () => {
+  atualizarImagem('card1', 'liga');
+});
+
+document.getElementById('liga-desejada').addEventListener('change', () => {
+  atualizarImagem('card2', 'liga-desejada');
+});
+
+// Chama as funções para definir as imagens iniciais ao carregar a página
+atualizarImagem('card1', 'liga');
+atualizarImagem('card2', 'liga-desejada');
+
+
+
 
 
 // Função para enviar mensagem no WhatsApp ao clicar no botão "COMPRAR"
@@ -133,10 +176,10 @@ function enviarParaWhatsApp() {
     Elo Desejado: ${eloDesejado} ${divisaoDesejada}
     Preço Final: ${precoFinal}`;
 
-    const numeroWhatsApp = "5511999999999"; // Substitua pelo número de WhatsApp desejado
+    const numeroWhatsApp = "5511967541945"; // Substitua pelo número de WhatsApp desejado
     const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
 
     window.open(linkWhatsApp, '_blank');
 }
 
-document.querySelector('button').addEventListener('click', enviarParaWhatsApp);
+document.querySelector('#pedido button').addEventListener('click', enviarParaWhatsApp);
