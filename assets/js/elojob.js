@@ -89,6 +89,15 @@ function atualizarPreco() {
     }
 
     const precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
+
+        // Condição para mostrar ou esconder o card alternativo
+        if (precoTotal === 0) {
+            document.getElementById('card-alternativo').style.display = 'block';
+            document.getElementById('container-preco').style.display = 'none';
+        } else {
+            document.getElementById('card-alternativo').style.display = 'none';
+            document.getElementById('container-preco').style.display = 'block';
+
     
     // Atualiza o valor exibido
     document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2)}`;
@@ -99,6 +108,7 @@ function atualizarPreco() {
     // Atualiza o pedido na interface
     document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
     document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
+    }
 }
 
 

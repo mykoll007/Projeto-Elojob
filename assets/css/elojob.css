@@ -124,13 +124,15 @@ main{
     text-align: center;
     background-color: #1D1C29;
 }
+#container-preco{
+    display: block;
+}
 #align-elo{
     display: flex;
     justify-content: space-around;
 }
 #align-elo p{
     margin-bottom: 0;
-    width: 100px;
 }
 #seta-pedido p{
     margin: 0;
@@ -185,6 +187,10 @@ main{
     border: 1px solid black;
     border-radius: 13px;
     font-size: 17px;
+}
+#card-alternativo{
+    margin-top: 118px;
+    display: none;
 }
 #align-planos{
     display: flex;
