@@ -8,10 +8,13 @@ const precosElo = {
     'platina': { '1': 24.99, '2': 24.99, '3': 24.99, '4': 24.99 },
     'esmeralda': { '1': 41.99, '2': 41.99, '3': 41.99, '4': 41.99 },
     'diamante': { '1': 69.99, '2': 69.99, '3': 69.99, '4': 69.99 }
-  };
-  
-  // Hierarquia dos elos em valores numéricos para comparação
-  const hierarquia = {
+};
+
+// Preços temporários para ajuste
+let precosEloTemporarios = JSON.parse(JSON.stringify(precosElo)); // Cria uma cópia dos preços
+
+// Hierarquia dos elos em valores numéricos para comparação
+const hierarquia = {
     'ferro': { '4': 1, '3': 2, '2': 3, '1': 4 },
     'bronze': { '4': 5, '3': 6, '2': 7, '1': 8 },
     'prata': { '4': 9, '3': 10, '2': 11, '1': 12 },
@@ -19,61 +22,67 @@ const precosElo = {
     'platina': { '4': 17, '3': 18, '2': 19, '1': 20 },
     'esmeralda': { '4': 21, '3': 22, '2': 23, '1': 24 },
     'diamante': { '4': 25, '3': 26, '2': 27, '1': 28 }
-  };
-  
-  // Função para calcular o preço total de acordo com a hierarquia de elos
-  function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada) {
+};
+
+// Função para calcular o preço total de acordo com a hierarquia de elos
+function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada) {
     const nivelAtual = hierarquia[eloAtual][divisaoAtual];
     const nivelDesejado = hierarquia[eloDesejado][divisaoDesejada];
-    
+
     let precoTotal = 0;
-  
-    // Se o elo desejado é maior que o atual, somamos os preços das divisões entre os níveis
+
     if (nivelDesejado > nivelAtual) {
-      let elo = eloAtual;
-      let divisao = divisaoAtual;
-  
-      // Começamos do elo e divisão atuais até o elo desejado
-      while (elo !== eloDesejado || divisao !== divisaoDesejada) {
-        // Soma o preço da divisão atual
-        if (elo !== eloDesejado || divisao !== divisaoDesejada) {
-          precoTotal += precosElo[elo][divisao];
+        // Subir na hierarquia
+        let elo = eloAtual;
+        let divisao = divisaoAtual;
+
+        while (elo !== eloDesejado || divisao !== divisaoDesejada) {
+            if (elo !== eloDesejado || divisao !== divisaoDesejada) {
+                precoTotal += precosEloTemporarios[elo][divisao];
+            }
+
+            if (divisao === '1') {
+                elo = proximoElo(elo);
+                divisao = '4';
+            } else {
+                divisao = (parseInt(divisao) - 1).toString();
+            }
         }
-  
-        // Subir na hierarquia das divisões
-        if (divisao === '1') { // Se estamos na primeira divisão, vamos para o próximo elo
-          if (elo === 'ferro') elo = 'bronze';
-          else if (elo === 'bronze') elo = 'prata';
-          else if (elo === 'prata') elo = 'ouro';
-          else if (elo === 'ouro') elo = 'platina';
-          else if (elo === 'platina') elo = 'esmeralda';
-          else if (elo === 'esmeralda') elo = 'diamante';
-          divisao = '4'; // Resetamos para a última divisão do novo elo
-        } else {
-          divisao = (parseInt(divisao) - 1).toString(); // Vai para a próxima divisão dentro do mesmo elo
+        precoTotal += precosEloTemporarios[eloDesejado][divisaoDesejada];
+    } else if (nivelDesejado < nivelAtual) {
+        // Descer na hierarquia
+        let elo = eloAtual;
+        let divisao = divisaoAtual;
+
+        while (elo !== eloDesejado || divisao !== divisaoDesejada) {
+            if (elo !== eloDesejado || divisao !== divisaoDesejada) {
+                precoTotal -= precosEloTemporarios[elo][divisao];
+            }
+
+            if (divisao === '4') {
+                elo = anteriorElo(elo);
+                divisao = '1';
+            } else {
+                divisao = (parseInt(divisao) + 1).toString();
+            }
         }
-      }
-  
-      // Soma o preço da última divisão desejada
-      precoTotal += precosElo[eloDesejado][divisaoDesejada];
     }
-  
-    return precoTotal;
-  }
-  
-  // Função para atualizar os preços com base nos elos e divisões atuais e desejadas
-  function atualizarPreco() {
+
+    return Math.max(precoTotal, 0); // Garante que o preço não fique negativo
+}
+
+// Função para atualizar os preços com base nos elos e divisões atuais e desejadas
+function atualizarPreco() {
     const eloAtual = document.getElementById('liga').value;
     const divisaoAtual = document.getElementById('divisao').value;
     const eloDesejado = document.getElementById('liga-desejada').value;
     const divisaoDesejada = document.getElementById('divisao-desejada').value;
 
     // Reseta os preços temporários
-    precosEloTemporarios = { ...precosElo };
+    precosEloTemporarios = JSON.parse(JSON.stringify(precosElo));
 
-    // Verifica se a liga e a divisão atuais estão selecionadas
+    // Define o preço do elo atual como 0
     if (eloAtual && divisaoAtual) {
-        // Define o preço do elo atual como 0
         precosEloTemporarios[eloAtual][divisaoAtual] = 0;
     }
 
@@ -90,49 +99,17 @@ const precosElo = {
     document.querySelector('#pedido #align-elo p:nth-child(3)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
 }
 
-// Modifique a função calcularPrecoTotal para usar os preços temporários
-function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada) {
-    const nivelAtual = hierarquia[eloAtual][divisaoAtual];
-    const nivelDesejado = hierarquia[eloDesejado][divisaoDesejada];
-    
-    let precoTotal = 0;
+// Funções auxiliares para obter o próximo e anterior elo
+function proximoElo(elo) {
+    const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante'];
+    const index = elos.indexOf(elo);
+    return index < elos.length - 1 ? elos[index + 1] : elo; // Retorna o próximo elo
+}
 
-    // Se o elo desejado é maior que o atual, somamos os preços das divisões entre os níveis
-    if (nivelDesejado > nivelAtual) {
-        let elo = eloAtual;
-        let divisao = divisaoAtual;
-
-        // Começamos do elo e divisão atuais até o elo desejado
-        while (elo !== eloDesejado || divisao !== divisaoDesejada) {
-            // Soma o preço da divisão atual
-            if (elo !== eloDesejado || divisao !== divisaoDesejada) {
-                precoTotal += precosEloTemporarios[elo][divisao];
-            }
-
-            // Subir na hierarquia das divisões
-            if (divisao === '1') { // Se estamos na primeira divisão, vamos para o próximo elo
-                if (elo === 'ferro') elo = 'bronze';
-                else if (elo === 'bronze') elo = 'prata';
-                else if (elo === 'prata') elo = 'ouro';
-                else if (elo === 'ouro') elo = 'platina';
-                else if (elo === 'platina') elo = 'esmeralda';
-                else if (elo === 'esmeralda') elo = 'diamante';
-                divisao = '4'; // Resetamos para a última divisão do novo elo
-            } else {
-                divisao = (parseInt(divisao) - 1).toString(); // Vai para a próxima divisão dentro do mesmo elo
-            }
-        }
-
-        // Soma o preço da última divisão desejada
-        precoTotal += precosEloTemporarios[eloDesejado][divisaoDesejada];
-
-        console.log(`Elo Atual: ${eloAtual}, Divisão Atual: ${divisaoAtual}`);
-        console.log(`Elo Desejado: ${eloDesejado}, Divisão Desejada: ${divisaoDesejada}`);
-        console.log(`Preço Total antes de somar: R$ ${precoTotal.toFixed(2)}`);
-    }
-
-    return precoTotal;
-    
+function anteriorElo(elo) {
+    const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante'];
+    const index = elos.indexOf(elo);
+    return index > 0 ? elos[index - 1] : elo; // Retorna o elo anterior
 }
 
 // Event listeners para atualizar o preço ao mudar as seleções
@@ -140,33 +117,26 @@ document.getElementById('liga').addEventListener('change', atualizarPreco);
 document.getElementById('divisao').addEventListener('change', atualizarPreco);
 document.getElementById('liga-desejada').addEventListener('change', atualizarPreco);
 document.getElementById('divisao-desejada').addEventListener('change', atualizarPreco);
-  
 
-  // Função para enviar mensagem no WhatsApp ao clicar no botão "COMPRAR"
-  function enviarParaWhatsApp() {
+
+// Função para enviar mensagem no WhatsApp ao clicar no botão "COMPRAR"
+function enviarParaWhatsApp() {
     const eloAtual = document.getElementById('liga').options[document.getElementById('liga').selectedIndex].text;
     const divisaoAtual = document.getElementById('divisao').value;
     const eloDesejado = document.getElementById('liga-desejada').options[document.getElementById('liga-desejada').selectedIndex].text;
     const divisaoDesejada = document.getElementById('divisao-desejada').value;
-  
+
     const precoFinal = document.querySelector('#precos p:nth-child(3)').textContent;
-  
+
     const mensagem = `Olá, gostaria de fazer o pedido do serviço:
     Elo Atual: ${eloAtual} ${divisaoAtual}
     Elo Desejado: ${eloDesejado} ${divisaoDesejada}
     Preço Final: ${precoFinal}`;
-  
+
     const numeroWhatsApp = "5511999999999"; // Substitua pelo número de WhatsApp desejado
     const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
-  
-    window.open(linkWhatsApp, '_blank');
-  }
-  
-  document.querySelector('button').addEventListener('click', enviarParaWhatsApp);
-  
-  document.getElementById('liga').addEventListener('change', atualizarPreco);
-  document.getElementById('divisao').addEventListener('change', atualizarPreco);
-  document.getElementById('liga-desejada').addEventListener('change', atualizarPreco);
-  document.getElementById('divisao-desejada').addEventListener('change', atualizarPreco);
-  
 
+    window.open(linkWhatsApp, '_blank');
+}
+
+document.querySelector('button').addEventListener('click', enviarParaWhatsApp);
