@@ -10,6 +10,17 @@ const precosElo = {
     'diamante': { '1': 69.99, '2': 69.99, '3': 69.99, '4': 69.99 }
 };
 
+// Objeto com os descontos específicos para cada elo
+const descontosElo = {
+    'ferro': 10.99,
+    'bronze': 10.99,
+    'prata': 10.99,
+    'ouro': 30.99,
+    'platina': 30.99,
+    'esmeralda': 30.99,
+    'diamante': 30.99
+};
+
 // Preços temporários para ajuste
 let precosEloTemporarios = JSON.parse(JSON.stringify(precosElo)); // Cria uma cópia dos preços
 
@@ -73,7 +84,6 @@ function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada
 
 
 
-// Função para atualizar os preços com base nos elos e divisões atuais e desejadas
 function atualizarPreco() {
     const eloAtual = document.getElementById('liga').value;
     const divisaoAtual = document.getElementById('divisao').value;
@@ -90,24 +100,25 @@ function atualizarPreco() {
 
     const precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
 
-        // Condição para mostrar ou esconder o card alternativo
-        if (precoTotal === 0) {
-            document.getElementById('card-alternativo').style.display = 'block';
-            document.getElementById('container-preco').style.display = 'none';
-        } else {
-            document.getElementById('card-alternativo').style.display = 'none';
-            document.getElementById('container-preco').style.display = 'block';
+    // Condição para mostrar ou esconder o card alternativo
+    if (precoTotal === 0) {
+        document.getElementById('card-alternativo').style.display = 'block';
+        document.getElementById('container-preco').style.display = 'none';
+    } else {
+        document.getElementById('card-alternativo').style.display = 'none';
+        document.getElementById('container-preco').style.display = 'block';
+        
+        // Atualiza o valor exibido com desconto (POR)
+        document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2).replace('.',',')}`;
+        
+        // Calcula o valor original (DE) com o acréscimo específico do elo
+        const desconto = descontosElo[eloAtual] || 0; // Pega o desconto específico do elo ou 0 se não houver
+        const precoOriginal = precoTotal + desconto;
+        document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2).replace('.',',')}`;
 
-    
-    // Atualiza o valor exibido
-    document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2)}`;
-
-    const precoOriginal = precoBase + precoTotal;
-    document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2)}`;
-
-    // Atualiza o pedido na interface
-    document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
-    document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
+        // Atualiza o pedido na interface
+        document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
+        document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
     }
 }
 
