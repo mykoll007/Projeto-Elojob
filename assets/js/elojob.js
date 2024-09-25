@@ -21,6 +21,17 @@ const descontosElo = {
     'diamante': 30.99
 };
 
+// Objeto com a adição se escolher o planoCronos
+const planoCronos = { 
+    'ferro': 7.00, 
+    'bronze': 7.00, 
+    'prata': 10.00, 
+    'ouro': 10.00, 
+    'platina': 13.00, 
+    'esmeralda': 15.00, 
+    'diamante': 20.00 
+};
+
 // Preços temporários para ajuste
 let precosEloTemporarios = JSON.parse(JSON.stringify(precosElo)); // Cria uma cópia dos preços
 
@@ -89,6 +100,7 @@ function atualizarPreco() {
     const divisaoAtual = document.getElementById('divisao').value;
     const eloDesejado = document.getElementById('liga-desejada').value;
     const divisaoDesejada = document.getElementById('divisao-desejada').value;
+    const planoSelecionado = document.getElementById('planos').value; // Pega o plano selecionado
 
     // Reseta os preços temporários
     precosEloTemporarios = JSON.parse(JSON.stringify(precosElo));
@@ -98,7 +110,18 @@ function atualizarPreco() {
         precosEloTemporarios[eloAtual][divisaoAtual] = 0;
     }
 
-    const precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
+    let precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
+
+    // Variável para armazenar o adicional do plano
+    let adicionalCronos = 0;
+
+    // Se o plano "Cronos" for selecionado e o precoTotal for maior que 0, adiciona o valor extra do plano
+    if (planoSelecionado === 'cronos' && precoTotal > 0) {
+        adicionalCronos = planoCronos[eloAtual] || 0; // Pega o valor extra do elo atual
+    }
+
+    // Atualiza o preço total com o adicional do plano Cronos
+    precoTotal += adicionalCronos;
 
     // Condição para mostrar ou esconder o card alternativo
     if (precoTotal === 0) {
@@ -109,18 +132,20 @@ function atualizarPreco() {
         document.getElementById('container-preco').style.display = 'block';
         
         // Atualiza o valor exibido com desconto (POR)
-        document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2).replace('.',',')}`;
+        document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2).replace('.', ',')}`;
         
         // Calcula o valor original (DE) com o acréscimo específico do elo
-        const desconto = descontosElo[eloAtual] || 0; // Pega o desconto específico do elo ou 0 se não houver
+        const desconto = descontosElo[eloAtual] || 0;
         const precoOriginal = precoTotal + desconto;
-        document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2).replace('.',',')}`;
+        document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2).replace('.', ',')}`;
 
         // Atualiza o pedido na interface
         document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
         document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
+        console.log(precoTotal)
     }
 }
+
 
 
 
@@ -142,6 +167,7 @@ function anteriorElo(elo) {
 
 
 // Event listeners para atualizar o preço ao mudar as seleções
+document.getElementById('planos').addEventListener('change', atualizarPreco);
 document.getElementById('liga').addEventListener('change', atualizarPreco);
 document.getElementById('divisao').addEventListener('change', atualizarPreco);
 document.getElementById('liga-desejada').addEventListener('change', atualizarPreco);
