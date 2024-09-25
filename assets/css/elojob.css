@@ -132,6 +132,9 @@ main{
     margin-bottom: 0;
     width: 100px;
 }
+#seta-pedido p{
+    margin: 0;
+}
 
 #align-eloimg{
     display: flex;
