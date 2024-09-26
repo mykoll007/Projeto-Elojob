@@ -1,13 +1,13 @@
 const precoBase = 0;
 // Objeto com preços para cada elo e divisão
 const precosElo = {
-    'ferro': { '1': 10.99, '2': 10.99, '3': 10.99, '4': 10.99 },
-    'bronze': { '1': 12.99, '2': 12.99, '3': 12.99, '4': 12.99 },
-    'prata': { '1': 14.99, '2': 14.99, '3': 14.99, '4': 14.99 },
-    'ouro': { '1': 18.99, '2': 18.99, '3': 18.99, '4': 18.99 },
-    'platina': { '1': 24.99, '2': 24.99, '3': 24.99, '4': 24.99 },
-    'esmeralda': { '1': 41.99, '2': 41.99, '3': 41.99, '4': 41.99 },
-    'diamante': { '1': 69.99, '2': 69.99, '3': 69.99, '4': 69.99 }
+    'ferro': { '1': 15.99, '2': 15.99, '3': 15.99, '4': 15.99 },
+    'bronze': { '1': 19.99, '2': 19.99, '3': 19.99, '4': 19.99 },
+    'prata': { '1': 23.99, '2': 23.99, '3': 23.99, '4': 23.99 },
+    'ouro': { '1': 29.99, '2': 29.99, '3': 29.99, '4': 29.99 },
+    'platina': { '1': 41.99, '2': 41.99, '3': 41.99, '4': 41.99 },
+    'esmeralda': { '1': 74.99, '2': 74.99, '3': 74.99, '4': 74.99 },
+    'diamante': { '1': 119.99, '2': 119.99, '3': 119.99, '4': 119.99 }
 };
 
 // Objeto com os descontos específicos para cada elo
@@ -219,7 +219,7 @@ function enviarParaWhatsApp() {
 
     const precoFinal = document.querySelector('#precos p:nth-child(3)').textContent;
 
-    const mensagem = `Olá, gostaria de fazer o pedido do serviço Elojob:
+    const mensagem = `Olá, gostaria de fazer o pedido do serviço DuoBoost:
     Elo Atual: ${eloAtual} ${divisaoAtual}
     Elo Desejado: ${eloDesejado} ${divisaoDesejada}
     Preço Final: ${precoFinal}`;
