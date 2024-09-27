@@ -40,6 +40,11 @@ const atualizarDisplay = () => {
     // Atualiza a cor dos quadrados com base na contagem
     for (let i = 1; i <= maxPartidas; i++) {
         const quadrado = document.getElementById(`quadrado${i}`);
+        
+        quadrado.onclick = () => {
+            count = i; // Atualiza a contagem para o número correspondente ao quadrado clicado
+            atualizarDisplay(); }
+
         if (i <= count) {
             quadrado.style.backgroundColor = 'black'; 
         } else {
