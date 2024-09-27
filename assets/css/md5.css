@@ -86,19 +86,6 @@ main{
 }
 
 
-#content-card2 select{
-    width: 217px;
-    height: 35px;
-    border: 1px solid white;
-    border-radius: 5px;
-    font-family: 'Poppins';
-    padding-left: 8px;
-    font-weight: 500;
-    font-size: 15px;
-}
-#content-card2 p:nth-of-type(2){
-    margin-bottom: 6px;
-}
 #numero-part{
     width: 123px;
     height: 123px;
@@ -115,11 +102,6 @@ main{
     width: 121px;
     font-size: 35px;
 }
-
-#content-card2 p:nth-of-type(3){
-margin-top: 51px;
-}
-
 
 #quantidade-part{
     display: flex;
@@ -248,16 +230,7 @@ margin-top: 51px;
     margin-top: 0;
     margin-bottom: 6px;
 }
-#planos{
-    width: 180px;
-    height: 33px;
-    border: 1px solid white;
-    border-radius: 5px;
-    padding-left: 8px;
-    font-weight: 500;
-    font-family: 'Poppins';
-    font-size: 15px;
-}
+
 #align-buttonPedido{
     display: flex;
     justify-content: center;
@@ -281,42 +254,7 @@ margin-top: 51px;
     padding-right: 5px;
     padding-left: 20px;
 }
-#card-alternativo{
-    margin-top: 135px;
-    display: none;
-}
-#align-planos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 100px;
-}
-.align-imgplano{
-    display: flex;
-    justify-content: center;
-}
-#plano-gladiador{
-width: 398px;
-margin-top: 7px;
 
-}
-#plano-gladiador h2{
-    color: white;
-    font-weight: 500;
-    font-family: 'Poppins';
-    text-align: center;
-}
-#plano-cronos h2{
-    color: white;
-    font-weight: 500;
-    font-family: 'Poppins';
-    text-align: center;
-}
-
-#plano-cronos{
-    width: 398px;
-
-}
 
 #infos-estat{
     display: flex;
