@@ -108,12 +108,19 @@ main{
     margin-top: 59px;
     margin-left: 73px;
     display: flex;
+    margin-bottom: 40px;
     justify-content: center;
 }
 #numero-part p{ 
     width: 121px;
     font-size: 35px;
 }
+
+#content-card2 p:nth-of-type(3){
+margin-top: 51px;
+}
+
+
 #quantidade-part{
     display: flex;
     justify-content: space-evenly;
