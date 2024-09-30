@@ -35,13 +35,21 @@ h1 {
   flex-wrap: wrap;
   gap: 20px;
 }
+
 .card {
   width: 278px;
   height: 381px;
   background-color: #1d1c29;
   text-align: center;
-  /* margin-left: 141px; */
+  overflow: hidden;
+  border: 2px solid transparent;
   border-radius: 19px;
+  transition: transform 0.5s ease, border-color 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+  border-color: white; 
+  cursor: pointer;
 }
 .card img {
   width: 111px;
@@ -81,13 +89,21 @@ h1 {
   background-color: #000000;
   border-radius: 13px;
   cursor: pointer;
+  transition: transform 0.5s ease;
+}
+.card button:hover {
+  transform: scale(1.05);
 }
 .vantagens {
   margin: 88px;
 }
+.vantagens img{
+  animation: float 3s ease-in-out infinite;
+}
 .vantagens div div {
   width: 318px;
   text-align: center;
+  position: relative;
 }
 .vantagens h2 {
   font-family: "Poppins";
@@ -141,6 +157,11 @@ h1 {
   background-color: #1D1C29;
   width: 600px;
   border-radius: 7px;
+  transition: transform 0.5s ease;
+  user-select: none;
+}
+.feedback:hover{
+  transform: scale(1.05);
 }
 #align-nomeStars{
     display: flex;
@@ -227,6 +248,10 @@ margin-left: 12px;
     border-radius: 37px;
     font-size: 16px;
     text-transform: uppercase;
+    transition: transform 0.5s ease;
+}
+#container-infos button:hover {
+  transform: scale(1.05);
 }
 .perguntas h1{
   padding-top: 83px;
@@ -252,10 +277,18 @@ margin-left: 12px;
   align-items: center; 
   cursor: pointer;
 }
-.resposta-acordeon{
-  display: none;
+.resposta-acordeon {
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height 0.5s ease; 
+  display: flex;
   justify-content: center;
 }
+
+.resposta-acordeon.active {
+  max-height: 100px; 
+}
+
 .resposta-acordeon p{
   text-align: center;
   width: 448px;
@@ -273,16 +306,21 @@ margin-left: 12px;
   font-family: poppins;
   font-weight: 400;
   margin-top: 0;
+  transition: transform 0.5s ease;
 }
+
 #align-chamada{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 #align-chamada img{
   margin-top: 21px;
   height: 35px;
+  transition: transform 0.5s ease;
 }
+
 #align-chamada p{
   margin-bottom: 0;
   margin-top: 30px;

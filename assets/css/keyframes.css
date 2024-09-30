@@ -1,0 +1,11 @@
+@keyframes float {
+    0% {
+        transform: translatey(0px); /* Posição inicial */
+    }
+    50% {
+        transform: translatey(-8px); /* Move para cima */
+    }
+    100% {
+        transform: translatey(0px); /* Retorna à posição inicial */
+    }
+}
