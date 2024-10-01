@@ -117,7 +117,7 @@ function atualizarPreco() {
     let adicionalCronos = 0;
 
     // Se o plano "Cronos" for selecionado e o precoTotal for maior que 0, adiciona o valor extra do plano
-    if (planoSelecionado === 'cronos' && precoTotal > 0) {
+    if (planoSelecionado === 'Cronos' && precoTotal > 0) {
         adicionalCronos = planoCronos[eloAtual] || 0; // Pega o valor extra do elo atual
     }
 
@@ -216,12 +216,14 @@ function enviarParaWhatsApp() {
     const divisaoAtual = document.getElementById('divisao').value;
     const eloDesejado = document.getElementById('liga-desejada').options[document.getElementById('liga-desejada').selectedIndex].text;
     const divisaoDesejada = document.getElementById('divisao-desejada').value;
+    const planoDesejado = document.getElementById("planos").value;
 
     const precoFinal = document.querySelector('#precos p:nth-child(3)').textContent;
 
     const mensagem = `Olá, gostaria de fazer o pedido do serviço DuoBoost:
     Elo Atual: ${eloAtual} ${divisaoAtual}
     Elo Desejado: ${eloDesejado} ${divisaoDesejada}
+    Plano: ${planoDesejado}
     Preço Final: ${precoFinal}`;
 
     const numeroWhatsApp = "5511967541945"; // Substitua pelo número de WhatsApp desejado
