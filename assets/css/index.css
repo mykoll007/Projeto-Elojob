@@ -29,6 +29,51 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+#container-jogos h1{
+padding-top: 0;
+}
+#jogos{
+  height: 100px;
+  background-color: #1D1C29;
+  margin-top: 0;
+  margin-bottom: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.circle-log{
+  background-color: white;
+  width: 125px;
+  border: 1px solid white;
+  height: 75px;
+  display: flex;
+  margin-right: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  user-select: none;
+  transition: transform 0.5s ease;
+}
+.circle-log:hover{
+  transform: scale(1.05);
+}
+.circle-log img{
+  width: 100px;
+  height: 50px;
+
+}
+.circle-log p{
+  color: black;
+  font-family: poppins;
+  font-weight: 500;
+}
+
+#circle2{
+  opacity: 50%;
+  transform: none;
+}
+
 #container-cards {
   display: flex;
   justify-content: space-evenly;
