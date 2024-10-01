@@ -96,6 +96,10 @@ h1 {
 }
 .vantagens {
   margin: 88px;
+  width: auto;
+  height: 40rem;
+  background: rgba(0, 0, 0, 0) url(../images/pantheon_sem_fundo.png) no-repeat scroll center bottom / auto 399px;
+  display: block;
 }
 .vantagens img{
   animation: float 3s ease-in-out infinite;
@@ -113,6 +117,10 @@ h1 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+#pantheon {
+
 }
 #vantagens3-4 {
   display: flex;
