@@ -99,6 +99,9 @@
         #container-infos button{
             margin: 22px 0;
         }
+        .button-link{
+            margin: 14px;
+        }
     }
     @media screen and (max-width: 385px){
     .hero p{
