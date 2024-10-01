@@ -58,16 +58,22 @@
     padding-top: 49px;
   }
   .login-btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     height: 40px;
-    width: 151px;
+    width: 160px;
     font-family: "Poppins";
     background-color: #282d30;
     color: white;
     border: 1px solid #282d30;
     border-radius: 13px;
     margin-top: 41px;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
+  }
+  .login-btn img{
+    width: 28px;
   }
 
   /*---------------Footer---------------------------*/
