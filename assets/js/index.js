@@ -55,7 +55,7 @@ document.getElementById("btn-acordeon4").addEventListener("click", function () {
 });
 
 //Rolagem Suave no "Inicie Sua Ascensão"
-document.querySelector("#chamada-serv a").addEventListener("click", function (event) {
+document.querySelector("#container-infos a").addEventListener("click", function (event) {
     event.preventDefault(); // Evita o comportamento padrão do link
     const targetId = this.getAttribute("href"); // Obtém o ID de destino
     const targetElement = document.querySelector(targetId); // Seleciona o elemento de destino
