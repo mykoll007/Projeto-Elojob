@@ -1,0 +1,12 @@
+main{
+    margin-top: 290px;
+    margin-bottom: 395px;
+    display: flex;
+    justify-content: center;
+}
+#eventos{
+    text-align: center;
+    color: white;
+    width: 717px;
+    font-family: poppins;
+}
