@@ -226,7 +226,7 @@ function enviarParaWhatsApp() {
     Plano: ${planoDesejado}
     Preço Final: ${precoFinal}`;
 
-    const numeroWhatsApp = "5511967541945"; // Substitua pelo número de WhatsApp desejado
+    const numeroWhatsApp = "5511991983299"; // Substitua pelo número de WhatsApp desejado
     const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
 
     window.open(linkWhatsApp, '_blank');

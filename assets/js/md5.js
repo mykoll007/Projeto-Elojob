@@ -102,7 +102,7 @@ const enviarWhatsApp = () => {
                    `Quantidade de Partidas: ${count}\n` +
                    `Preço Total: R$ ${(preco * count).toFixed(2)}`;
   
-  const numeroWhatsApp = "5511967541945"; // Substitua pelo seu número, incluindo o código do país
+  const numeroWhatsApp = "5511991983299"; 
   const url = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
 
   // Abre a URL do WhatsApp em uma nova aba

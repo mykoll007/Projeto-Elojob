@@ -336,13 +336,13 @@ h4 {
 .resposta-acordeon {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.8s ease;
   display: flex;
   justify-content: center;
 }
 
 .resposta-acordeon.active {
-  max-height: 100px;
+  max-height: 160px;
 }
 
 .resposta-acordeon p {
