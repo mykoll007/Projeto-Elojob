@@ -110,6 +110,12 @@
     }
 
     /*------------------elojob.html----------------------------------*/
+    @media screen and (max-width: 1245px){
+        #align-planos{
+            background: none;
+        }
+    }
+
     @media screen and (max-width: 450px){
         #align-planos{
         margin-left: 32px;

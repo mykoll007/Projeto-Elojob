@@ -202,6 +202,8 @@ main {
   display: none;
 }
 #align-planos {
+  background: rgba(0, 0, 0, 0) url(../images/leona.png) no-repeat
+    scroll center bottom / auto 399px;;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
