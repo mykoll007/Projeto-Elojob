@@ -10,6 +10,7 @@ const atualizarPrecoPartidas = () => {
     const partidasSelect = document.getElementById('partidas');
     const precoPorElement = document.querySelector('#precos-coach p:nth-of-type(3)'); // Preço "POR"
     const precoDeElement = document.querySelector('#precos-coach p:nth-of-type(1)'); // Preço "DE"
+    const definicaoPartidasElement = document.querySelector('#definicao-partidas p'); // Parágrafo para a definição das partidas
 
     const selectedValue = partidasSelect.value;
     const precoAtual = precosPorPartida[selectedValue];
@@ -21,6 +22,8 @@ const atualizarPrecoPartidas = () => {
     // Atualiza o texto do preço "POR"
     precoPorElement.textContent = `R$ ${precoAtual.toFixed(2).replace('.', ',')}`;
 
+    // Atualiza o parágrafo para a definição das partidas
+    definicaoPartidasElement.textContent = `${partidasSelect.options[partidasSelect.selectedIndex].text.toUpperCase()}`; // Atualiza o parágrafo
 };
 
 // Adiciona o evento de mudança ao select de partidas
@@ -28,6 +31,7 @@ document.getElementById('partidas').addEventListener('change', atualizarPrecoPar
 
 // Inicializa o preço na primeira carga
 atualizarPrecoPartidas();
+
 
 const enviarWhatsApp = () => {
     const partidasSelect = document.getElementById('partidas');
