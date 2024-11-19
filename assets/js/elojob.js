@@ -31,8 +31,7 @@ const planoCronos = {
     'ouro': 10.00, 
     'platina': 13.00, 
     'esmeralda': 15.00, 
-    'diamante': 20.00,
-    'mestre': 40.00 
+    'diamante': 30.00
 };
 
 
