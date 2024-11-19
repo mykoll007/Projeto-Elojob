@@ -7,7 +7,8 @@ const precosElo = {
     'ouro': { '1': 18.99, '2': 18.99, '3': 18.99, '4': 18.99 },
     'platina': { '1': 24.99, '2': 24.99, '3': 24.99, '4': 24.99 },
     'esmeralda': { '1': 41.99, '2': 41.99, '3': 41.99, '4': 41.99 },
-    'diamante': { '1': 69.99, '2': 69.99, '3': 69.99, '4': 69.99 }
+    'diamante': { '1': 69.99, '2': 69.99, '3': 69.99, '4': 69.99 },
+    'mestre': { '1': 0, '2': 0, '3': 0, '4': 120.00 }
 };
 
 // Objeto com os descontos específicos para cada elo
@@ -18,7 +19,8 @@ const descontosElo = {
     'ouro': 30.99,
     'platina': 30.99,
     'esmeralda': 30.99,
-    'diamante': 30.99
+    'diamante': 30.99,
+    'mestre': 30.99
 };
 
 // Objeto com a adição se escolher o planoCronos
@@ -29,7 +31,8 @@ const planoCronos = {
     'ouro': 10.00, 
     'platina': 13.00, 
     'esmeralda': 15.00, 
-    'diamante': 20.00 
+    'diamante': 20.00,
+    'mestre': 40.00 
 };
 
 
@@ -41,7 +44,9 @@ const hierarquia = {
     'ouro': { '4': 13, '3': 14, '2': 15, '1': 16 },
     'platina': { '4': 17, '3': 18, '2': 19, '1': 20 },
     'esmeralda': { '4': 21, '3': 22, '2': 23, '1': 24 },
-    'diamante': { '4': 25, '3': 26, '2': 27, '1': 28 }
+    'diamante': { '4': 25, '3': 26, '2': 27, '1': 28 },
+    'mestre': { '4': 29, '3': 30, '2': 31, '1': 32 }
+
 };
 
 // Preços temporários para ajuste
@@ -153,7 +158,7 @@ function atualizarPreco() {
 
 // Funções auxiliares para obter o próximo e anterior elo
 function proximoElo(elo) {
-    const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante'];
+    const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante', 'mestre'];
     const index = elos.indexOf(elo);
     return index < elos.length - 1 ? elos[index + 1] : elo; // Retorna o próximo elo
 }
@@ -161,7 +166,7 @@ function proximoElo(elo) {
 
 
 function anteriorElo(elo) {
-    const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante'];
+    const elos = ['ferro', 'bronze', 'prata', 'ouro', 'platina', 'esmeralda', 'diamante', 'mestre'];
     const index = elos.indexOf(elo);
     return index > 0 ? elos[index - 1] : elo; // Retorna o elo anterior
 }
@@ -193,6 +198,39 @@ function atualizarImagem(cardId, selectId) {
   }
 }
 
+// Função para atualizar a parte do pedido
+function atualizarPedido() {
+    const ligaDesejada = document.getElementById('liga-desejada').value;
+    const divisaoDesejada = document.getElementById('divisao-desejada').value;
+
+    const eloDesejadoText = document.querySelector('#align-elo p:nth-child(2)'); // Onde está 'OURO 4'
+    
+    if (ligaDesejada === "mestre") {
+        // Quando 'Mestre' é selecionado, apenas exibe "MESTRE" sem divisão
+        eloDesejadoText.textContent = "MESTRE";
+    } else {
+        // Exibe a liga e a divisão normalmente
+        eloDesejadoText.textContent = `${ligaDesejada.toUpperCase()} ${divisaoDesejada}`;
+    }
+}
+
+// Event listeners para atualizar as imagens e pedidos ao mudar as seleções
+document.getElementById('liga').addEventListener('change', () => {
+  atualizarImagem('card1', 'liga');
+  atualizarPedido(); // Atualiza o pedido ao mudar o elo
+});
+
+document.getElementById('liga-desejada').addEventListener('change', () => {
+  atualizarImagem('card2', 'liga-desejada');
+  atualizarPedido(); // Atualiza o pedido ao mudar o elo desejado
+});
+
+document.getElementById('divisao-desejada').addEventListener('change', () => {
+  atualizarPedido(); // Atualiza o pedido ao mudar a divisão
+});
+
+
+
 // Event listeners para atualizar as imagens ao mudar as seleções
 document.getElementById('liga').addEventListener('change', () => {
   atualizarImagem('card1', 'liga');
@@ -205,6 +243,28 @@ document.getElementById('liga-desejada').addEventListener('change', () => {
 // Chama as funções para definir as imagens iniciais ao carregar a página
 atualizarImagem('card1', 'liga');
 atualizarImagem('card2', 'liga-desejada');
+atualizarPedido();
+
+
+// Função para quando selecionar o Mestre ele esconda a barrinha de divisão
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("liga-desejada").addEventListener("change", function() {
+        var ligaSelecionada = this.value;
+        var divisaoSelect = document.getElementById("divisao-desejada"); // Seleciona o <select> com ID 'divisao-desejada'
+        var divisaoParagrafo = document.querySelector("#content-card2 p:nth-of-type(2)"); // Seleciona o segundo parágrafo
+
+        if (ligaSelecionada === "mestre") {
+            divisaoSelect.style.display = "none"; // Esconde o <select> de "Divisão Atual"
+            divisaoParagrafo.style.display = "none"; // Esconde o parágrafo "Divisão Atual"
+            
+        } else {
+            divisaoSelect.style.display = "inline-block"; // Mostra o <select> de "Divisão Atual"
+            divisaoParagrafo.style.display = "inline-block"; // Mostra o parágrafo "Divisão Atual"
+        }
+    });
+    
+});
+
 
 
 
