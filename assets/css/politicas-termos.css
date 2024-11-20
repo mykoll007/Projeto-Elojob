@@ -11,6 +11,9 @@ main{
     width: 717px;
     font-family: poppins;
 }
+h1{
+    color: darkorange;
+}
 h4{
     font-size: 23px;
     margin: 61px 0;

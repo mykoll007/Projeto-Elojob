@@ -1,3 +1,11 @@
+#elojob-nav{
+  color: darkorange;
+  font-weight: 500;
+}
+#duo-li{
+  color: darkorange;
+  font-weight: 500;
+}
 main {
   margin-top: 152px;
 }
@@ -8,7 +16,7 @@ main {
   margin: 0;
   font-size: 45px;
   font-family: poppins;
-  color: white;
+  color: darkorange;
   font-weight: 600;
 }
 #elojob h4 {
@@ -35,7 +43,7 @@ main {
 }
 
 #card1 h4 {
-  color: white;
+  color: darkorange;
   font-family: poppins;
   font-weight: 600;
   text-align: center;
@@ -71,7 +79,7 @@ main {
   margin-bottom: 6px;
 }
 #card2 h4 {
-  color: white;
+  color: darkorange;
   font-family: poppins;
   font-weight: 600;
   text-align: center;
@@ -108,7 +116,7 @@ main {
 }
 
 #pedido h4 {
-  color: white;
+  color: darkorange;
   font-family: poppins;
   font-weight: 600;
   text-align: center;
@@ -190,13 +198,10 @@ main {
   border-radius: 13px;
   font-size: 17px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-#pedido button img {
-  width: 27px;
-  padding-right: 5px;
-  padding-left: 20px;
-}
+
 #card-alternativo {
   margin-top: 135px;
   display: none;
@@ -218,13 +223,13 @@ main {
   margin-top: 7px;
 }
 #plano-gladiador h2 {
-  color: white;
+  color: darkorange;
   font-weight: 500;
   font-family: "Poppins";
   text-align: center;
 }
 #plano-cronos h2 {
-  color: white;
+  color: darkorange;
   font-weight: 500;
   font-family: "Poppins";
   text-align: center;
@@ -246,7 +251,7 @@ main {
   margin: 59px 84px;
 }
 #especificacoes h2 {
-  color: white;
+  color: darkorange;
   font-weight: 500;
   font-family: "Poppins";
 }

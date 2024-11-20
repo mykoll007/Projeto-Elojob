@@ -1,6 +1,6 @@
 const precoBase = 0;
 // Objeto com preços para cada elo e divisão
-const precosElo = {
+const precoElo = {
     'ferro': { '1': 10.99, '2': 10.99, '3': 10.99, '4': 10.99 },
     'bronze': { '1': 12.99, '2': 12.99, '3': 12.99, '4': 12.99 },
     'prata': { '1': 14.99, '2': 14.99, '3': 14.99, '4': 14.99 },
@@ -12,7 +12,7 @@ const precosElo = {
 };
 
 // Objeto com os descontos específicos para cada elo
-const descontosElo = {
+const descontoElo = {
     'ferro': 10.99,
     'bronze': 10.99,
     'prata': 10.99,
@@ -49,7 +49,7 @@ const hierarquia = {
 };
 
 // Preços temporários para ajuste
-let precosEloTemporarios = JSON.parse(JSON.stringify(precosElo)); // Cria uma cópia dos preços
+let precoEloTemporarios = JSON.parse(JSON.stringify(precoElo)); // Cria uma cópia dos preços
 
 // Função para calcular o preço total de acordo com a hierarquia de elos
 function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada) {
@@ -65,7 +65,7 @@ function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada
 
         while (elo !== eloDesejado || divisao !== divisaoDesejada) {
             if (elo !== eloDesejado || divisao !== divisaoDesejada) {
-                precoTotal += precosEloTemporarios[elo][divisao];
+                precoTotal += precoEloTemporarios[elo][divisao];
             }
 
             if (divisao === '1') {
@@ -75,7 +75,7 @@ function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada
                 divisao = (parseInt(divisao) - 1).toString();
             }
         }
-        precoTotal += precosEloTemporarios[eloDesejado][divisaoDesejada];
+        precoTotal += precoEloTemporarios[eloDesejado][divisaoDesejada];
     } else if (nivelDesejado < nivelAtual) {
         // Descer na hierarquia
         let elo = eloAtual;
@@ -83,7 +83,7 @@ function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada
 
         while (elo !== eloDesejado || divisao !== divisaoDesejada) {
             if (elo !== eloDesejado || divisao !== divisaoDesejada) {
-                precoTotal -= precosEloTemporarios[elo][divisao];
+                precoTotal -= precoEloTemporarios[elo][divisao];
             }
 
             if (divisao === '4') {
@@ -100,56 +100,7 @@ function calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada
 
 
 
-function atualizarPreco() {
-    const eloAtual = document.getElementById('liga').value;
-    const divisaoAtual = document.getElementById('divisao').value;
-    const eloDesejado = document.getElementById('liga-desejada').value;
-    const divisaoDesejada = document.getElementById('divisao-desejada').value;
-    const planoSelecionado = document.getElementById('planos').value; // Pega o plano selecionado
 
-    // Reseta os preços temporários
-    precosEloTemporarios = JSON.parse(JSON.stringify(precosElo));
-
-    // Define o preço do elo atual como 0
-    if (eloAtual && divisaoAtual) {
-        precosEloTemporarios[eloAtual][divisaoAtual] = 0;
-    }
-
-    let precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
-
-    // Variável para armazenar o adicional do plano
-    let adicionalCronos = 0;
-
-    // Se o plano "Cronos" for selecionado e o precoTotal for maior que 0, adiciona o valor extra do plano
-    if (planoSelecionado === 'Cronos' && precoTotal > 0) {
-        adicionalCronos = planoCronos[eloAtual] || 0; // Pega o valor extra do elo atual
-    }
-
-    // Atualiza o preço total com o adicional do plano Cronos
-    precoTotal += adicionalCronos;
-
-    // Condição para mostrar ou esconder o card alternativo
-    if (precoTotal === 0) {
-        document.getElementById('card-alternativo').style.display = 'block';
-        document.getElementById('container-preco').style.display = 'none';
-    } else {
-        document.getElementById('card-alternativo').style.display = 'none';
-        document.getElementById('container-preco').style.display = 'block';
-        
-        // Atualiza o valor exibido com desconto (POR)
-        document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2).replace('.', ',')}`;
-        
-        // Calcula o valor original (DE) com o acréscimo específico do elo
-        const desconto = descontosElo[eloAtual] || 0;
-        const precoOriginal = precoTotal + desconto;
-        document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2).replace('.', ',')}`;
-
-        // Atualiza o pedido na interface
-        document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
-        document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
-        console.log(precoTotal)
-    }
-}
 
 
 
@@ -183,67 +134,92 @@ document.getElementById('divisao-desejada').addEventListener('change', atualizar
 
 // Função para atualizar a imagem do elo
 function atualizarImagem(cardId, selectId) {
-  const elo = document.getElementById(selectId).value;
-  const imgSrc = `../assets/images/${elo}.png`;
-  
-  // Atualiza a imagem do card
-  document.querySelector(`#${cardId} img`).src = imgSrc;
+    const elo = document.getElementById(selectId).value;
+    const imgSrc = `../assets/images/${elo}.png`;
 
-  // Atualiza as imagens em align-eloimg
-  if (cardId === 'card1') {
-      document.querySelector('#align-eloimg img:first-child').src = imgSrc; // Elo Atual
-  } else {
-      document.querySelector('#align-eloimg img:last-child').src = imgSrc; // Elo Desejado
-  }
-}
+    // Atualiza a imagem do card
+    document.querySelector(`#${cardId} img`).src = imgSrc;
 
-// Função para atualizar a parte do pedido
-function atualizarPedido() {
-    const ligaDesejada = document.getElementById('liga-desejada').value;
-    const divisaoDesejada = document.getElementById('divisao-desejada').value;
-
-    const eloDesejadoText = document.querySelector('#align-elo p:nth-child(2)'); // Onde está 'OURO 4'
-    
-    if (ligaDesejada === "mestre") {
-        // Quando 'Mestre' é selecionado, apenas exibe "MESTRE" sem divisão
-        eloDesejadoText.textContent = "MESTRE";
+    // Atualiza as imagens em align-eloimg
+    if (cardId === 'card1') {
+        document.querySelector('#align-eloimg img:first-child').src = imgSrc; // Elo Atual
     } else {
-        // Exibe a liga e a divisão normalmente
-        eloDesejadoText.textContent = `${ligaDesejada.toUpperCase()} ${divisaoDesejada}`;
+        document.querySelector('#align-eloimg img:last-child').src = imgSrc; // Elo Desejado
     }
 }
 
+
 // Event listeners para atualizar as imagens e pedidos ao mudar as seleções
 document.getElementById('liga').addEventListener('change', () => {
-  atualizarImagem('card1', 'liga');
-  atualizarPedido(); // Atualiza o pedido ao mudar o elo
+    atualizarImagem('card1', 'liga');
 });
 
 document.getElementById('liga-desejada').addEventListener('change', () => {
-  atualizarImagem('card2', 'liga-desejada');
-  atualizarPedido(); // Atualiza o pedido ao mudar o elo desejado
+    atualizarImagem('card2', 'liga-desejada');
 });
 
-document.getElementById('divisao-desejada').addEventListener('change', () => {
-  atualizarPedido(); // Atualiza o pedido ao mudar a divisão
-});
-
-
-
-// Event listeners para atualizar as imagens ao mudar as seleções
-document.getElementById('liga').addEventListener('change', () => {
-  atualizarImagem('card1', 'liga');
-});
-
-document.getElementById('liga-desejada').addEventListener('change', () => {
-  atualizarImagem('card2', 'liga-desejada');
-});
 
 // Chama as funções para definir as imagens iniciais ao carregar a página
 atualizarImagem('card1', 'liga');
 atualizarImagem('card2', 'liga-desejada');
-atualizarPedido();
 
+function atualizarPreco() {
+    const eloAtual = document.getElementById('liga').value;
+    const divisaoAtual = document.getElementById('divisao').value;
+    const eloDesejado = document.getElementById('liga-desejada').value;
+    const divisaoDesejada = document.getElementById('divisao-desejada').value;
+    const planoSelecionado = document.getElementById('planos').value; // Pega o plano selecionado
+
+    // Reseta os preços temporários
+    precoEloTemporarios = JSON.parse(JSON.stringify(precoElo));
+
+    // Define o preço do elo atual como 0
+    if (eloAtual && divisaoAtual) {
+        precoEloTemporarios[eloAtual][divisaoAtual] = 0;
+    }
+
+    let precoTotal = calcularPrecoTotal(eloAtual, divisaoAtual, eloDesejado, divisaoDesejada);
+
+    // Variável para armazenar o adicional do plano
+    let adicionalCronos = 0;
+
+    // Se o plano "Cronos" for selecionado e o precoTotal for maior que 0, adiciona o valor extra do plano
+    if (planoSelecionado === 'Cronos' && precoTotal > 0) {
+        adicionalCronos = planoCronos[eloAtual] || 0; // Pega o valor extra do elo atual
+    }
+
+    // Atualiza o preço total com o adicional do plano Cronos
+    precoTotal += adicionalCronos;
+
+    // Condição para mostrar ou esconder o card alternativo
+    if (precoTotal === 0) {
+        document.getElementById('card-alternativo').style.display = 'block';
+        document.getElementById('container-preco').style.display = 'none';
+    } else {
+        document.getElementById('card-alternativo').style.display = 'none';
+        document.getElementById('container-preco').style.display = 'block';
+        
+        // Atualiza o valor exibido com desconto (POR)
+        document.querySelector('#precos p:nth-child(3)').textContent = `R$ ${precoTotal.toFixed(2).replace('.', ',')}`;
+        
+        // Calcula o valor original (DE) com o acréscimo específico do elo
+        const desconto = descontoElo[eloAtual] || 0;
+        const precoOriginal = precoTotal + desconto;
+        document.querySelector('#precos p:nth-child(1)').textContent = `DE: R$ ${precoOriginal.toFixed(2).replace('.', ',')}`;
+
+        // Atualiza o pedido na interface
+        document.querySelector('#pedido #align-elo p:nth-child(1)').textContent = `${eloAtual.toUpperCase()} ${divisaoAtual}`;
+        
+        // Verifica se o elo desejado é "Mestre", e mantém "MESTRE"
+        if (eloDesejado.toLowerCase() === "mestre") {
+            document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = "MESTRE";
+        } else {
+            document.querySelector('#pedido #align-elo p:nth-child(2)').textContent = `${eloDesejado.toUpperCase()} ${divisaoDesejada}`;
+        }
+
+        console.log(precoTotal);
+    }
+}
 
 // Função para quando selecionar o Mestre ele esconda a barrinha de divisão
 document.addEventListener("DOMContentLoaded", function() {

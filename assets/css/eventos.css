@@ -1,3 +1,7 @@
+#evento-li{
+    color: darkorange;
+    font-weight: 500;
+}
 main{
     margin-top: 222px;
     margin-bottom: 219px;
@@ -9,4 +13,8 @@ main{
     color: white;
     width: 717px;
     font-family: poppins;
+}
+#eventos h1{
+    color: darkorange;
+    font-weight: 500;
 }

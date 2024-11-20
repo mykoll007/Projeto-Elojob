@@ -1,3 +1,7 @@
+#inicio{
+  color: darkorange;
+  font-weight: 500;
+}
 main {
   margin-top: 150px;
 }
@@ -12,7 +16,7 @@ main {
 }
 
 h1 {
-  color: white;
+  color: darkorange;
   font-family: poppins;
   font-weight: 600;
   font-size: 25px;
@@ -158,7 +162,7 @@ h1 {
 }
 .vantagens h2 {
   font-family: "Poppins";
-  color: white;
+  color: darkorange;
 }
 #vantagens1-2 {
   display: flex;
@@ -238,6 +242,7 @@ h1 {
 }
 .dois-text p:first-of-type {
   margin-top: 11px;
+  color: darkorange;
   font-size: 19px;
   margin-left: 13px;
   margin-bottom: 0;
@@ -373,6 +378,7 @@ h4 {
 }
 #align-chamada h2,
 #align-chamada img {
+  color: darkorange;
   transition: transform 0.3s ease;
 }
 #align-chamada:hover h2 {
